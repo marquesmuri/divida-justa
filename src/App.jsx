@@ -63,14 +63,17 @@ function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [typing, setTyping] = useState(false);
   const [options, setOptions] = useState([]);
-  const bottomRef = useRef(null);
+  const messagesRef = useRef(null);
   const inputRef = useRef(null);
 
-  useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages, typing, options]);
+  useEffect(() => {
+    const el = messagesRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [messages, typing, options]);
 
   useEffect(() => {
     addBotMessages([
-      "Olá! Eu sou a **Joelma**, assistente jurídica do escritório **Marques & Cunha Advogados**. 👋",
+      "Olá! Eu sou a **Juri**, assistente jurídica do escritório **Marques & Cunha Advogados**. 👋",
       "Estou aqui para te ajudar a descobrir se a sua dívida tem **juros abusivos** — e se você tem direito à revisão judicial.",
       "São apenas algumas perguntas rápidas. É totalmente **gratuito e sigiloso**. 🔒",
       "Pronto para começar?",
@@ -171,7 +174,7 @@ function Chatbot() {
       <div style={{ padding: "14px 18px", borderBottom: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
         <div style={{ width: 36, height: 36, borderRadius: "50%", background: "linear-gradient(135deg,#c9a84c,#e8c97a)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, color: "#0c1520", fontWeight: "bold", flexShrink: 0 }}>⚖</div>
         <div>
-          <div style={{ color: "#e8c97a", fontFamily: "Georgia, serif", fontWeight: "bold", fontSize: 14 }}>Joelma</div>
+          <div style={{ color: "#e8c97a", fontFamily: "Georgia, serif", fontWeight: "bold", fontSize: 14 }}>Juri</div>
           <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
             <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#10b981", animation: "djPulse 2s infinite" }} />
             <span style={{ color: "rgba(255,255,255,0.4)", fontSize: 11, fontFamily: "system-ui" }}>Assistente jurídica · online agora</span>
@@ -179,7 +182,7 @@ function Chatbot() {
         </div>
       </div>
 
-      <div style={{ flex: 1, overflowY: "auto", padding: "18px 16px", display: "flex", flexDirection: "column", gap: 10 }}>
+      <div ref={messagesRef} style={{ flex: 1, overflowY: "auto", padding: "18px 16px", display: "flex", flexDirection: "column", gap: 10, maxHeight: 480 }}>
         {messages.map((msg, i) => (
           <div key={i} style={{ display: "flex", justifyContent: msg.from === "user" ? "flex-end" : "flex-start", alignItems: "flex-end", gap: 7 }}>
             {msg.from === "bot" && (
@@ -260,7 +263,6 @@ function Chatbot() {
             ))}
           </div>
         )}
-        <div ref={bottomRef} />
       </div>
 
       {[STEPS.VALOR_ORIGINAL,STEPS.VALOR_ATUAL,STEPS.NOME,STEPS.TELEFONE].includes(step) && !typing && (
@@ -370,7 +372,7 @@ export default function LandingPage() {
                 <div style={{ padding: "14px 18px", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: 10 }}>
                   <div style={{ width: 34, height: 34, borderRadius: "50%", background: `linear-gradient(135deg,${G},${GL})`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, color: "#0c1520" }}>⚖</div>
                   <div>
-                    <div style={{ color: GL, fontFamily: "Georgia, serif", fontWeight: "bold", fontSize: 13 }}>Joelma</div>
+                    <div style={{ color: GL, fontFamily: "Georgia, serif", fontWeight: "bold", fontSize: 13 }}>Juri</div>
                     <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
                       <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#10b981" }} />
                       <span style={{ color: "rgba(255,255,255,0.35)", fontSize: 10 }}>Assistente jurídica · online</span>
@@ -410,7 +412,7 @@ export default function LandingPage() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3,1fr)", gap: 20 }}>
             {[
-              { num: "01", icon: "💬", titulo: "Responda às perguntas", desc: "A Joelma faz perguntas simples sobre sua dívida: qual banco, tipo, quanto cresceu, se você está negativado." },
+              { num: "01", icon: "💬", titulo: "Responda às perguntas", desc: "A Juri faz perguntas simples sobre sua dívida: qual banco, tipo, quanto cresceu, se você está negativado." },
               { num: "02", icon: "⚖️", titulo: "Análise jurídica automática", desc: "Nosso sistema compara os dados com os limites legais de juros previstos em lei e na jurisprudência." },
               { num: "03", icon: "📲", titulo: "Nossa equipe te contata", desc: "Com o resultado, os advogados entram em contato em até 24h para explicar os próximos passos." },
             ].map((item, i) => (
@@ -456,7 +458,7 @@ export default function LandingPage() {
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1.1fr", gap: isMobile ? 32 : 60, alignItems: "start" }}>
           <div style={{ paddingTop: isMobile ? 0 : 20 }}>
             <div style={{ color: GL, fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", marginBottom: 14 }}>ANÁLISE GRATUITA</div>
-            <h2 style={{ fontFamily: "Georgia, serif", fontSize: isMobile ? 30 : 38, fontWeight: "normal", margin: "0 0 16px", lineHeight: 1.2 }}>Fale agora com a Joelma</h2>
+            <h2 style={{ fontFamily: "Georgia, serif", fontSize: isMobile ? 30 : 38, fontWeight: "normal", margin: "0 0 16px", lineHeight: 1.2 }}>Fale agora com a Juri</h2>
             <p style={{ color: "rgba(255,255,255,0.5)", fontSize: isMobile ? 14 : 15, lineHeight: 1.8, margin: "0 0 24px" }}>
               Nossa assistente jurídica está disponível 24 horas. Responda às perguntas e descubra em menos de 3 minutos se sua dívida tem indícios de abusividade.
             </p>
@@ -489,7 +491,7 @@ export default function LandingPage() {
           <h2 style={{ fontFamily: "Georgia, serif", fontSize: isMobile ? 26 : 32, fontWeight: "normal", margin: 0 }}>Perguntas comuns</h2>
         </div>
         {[
-          { q: "A análise é realmente gratuita?", r: "Sim. A análise pela Joelma é 100% gratuita e sem nenhum compromisso. A consulta com o advogado também é gratuita." },
+          { q: "A análise é realmente gratuita?", r: "Sim. A análise pela Juri é 100% gratuita e sem nenhum compromisso. A consulta com o advogado também é gratuita." },
           { q: "O escritório fica com parte do valor recuperado?", r: "Nossos honorários são combinados caso a caso, com transparência total antes de qualquer ação. Em muitos casos operamos no modelo de êxito, sem custo inicial." },
           { q: "Como sei se meus juros são abusivos?", r: "O Banco Central regula os limites de juros por modalidade de crédito. Taxas que excedem a média do mercado ou que crescem exponencialmente podem ser contestadas judicialmente." },
           { q: "Precisa ir ao escritório presencialmente?", r: "Não. Todo o processo pode ser conduzido de forma remota, com assinatura digital de documentos." },
