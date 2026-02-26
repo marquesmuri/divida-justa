@@ -307,7 +307,7 @@ export default function LandingPage() {
     <div style={{ background: NAVY, minHeight: "100vh", color: "#fff", fontFamily: "'Montserrat', system-ui, sans-serif", overflowX: "hidden" }}>
 
       {/* ── NAV ── */}
-      <nav style={{
+      <nav className="dj-nav" style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
         padding: "0 32px",
         height: 64,
@@ -321,14 +321,14 @@ export default function LandingPage() {
           <img src={LOGO_NAV} alt="Marques & Cunha Advogados" style={{ height: 48, width: "auto", objectFit: "contain", maxWidth: 220 }} />
           <span style={{ color: "rgba(255,255,255,0.2)", fontSize: 12, marginLeft: 4, fontStyle: "italic" }}>Dívida Justa</span>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+        <div className="dj-nav-right" style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <a href="https://instagram.com/marquesecunha.adv" target="_blank" rel="noreferrer"
             style={{ color: "rgba(255,255,255,0.45)", fontSize: 12, textDecoration: "none", letterSpacing: "0.05em", transition: "color 0.2s", display: "flex", alignItems: "center", gap: 5 }}
             onMouseEnter={e => { e.currentTarget.style.color=GL; }} onMouseLeave={e => { e.currentTarget.style.color="rgba(255,255,255,0.45)"; }}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            @marquesecunha.adv
+            <span className="dj-nav-ig-label">@marquesecunha.adv</span>
           </a>
-          <button onClick={scrollToChat} style={{ padding: "8px 20px", borderRadius: 20, background: `linear-gradient(135deg,${G},${GL})`, border: "none", color: "#15253f", fontWeight: 700, fontSize: 12, cursor: "pointer", letterSpacing: "0.04em" }}>
+          <button className="dj-nav-cta" onClick={scrollToChat} style={{ padding: "8px 20px", borderRadius: 20, background: `linear-gradient(135deg,${G},${GL})`, border: "none", color: "#15253f", fontWeight: 700, fontSize: 12, cursor: "pointer", letterSpacing: "0.04em" }}>
             ANALISAR MINHA DÍVIDA
           </button>
         </div>
@@ -347,7 +347,7 @@ export default function LandingPage() {
           </svg>
         </div>
 
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "80px 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", position: "relative" }}>
+        <div className="hero-grid" style={{ maxWidth: 1100, margin: "0 auto", padding: "80px 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", position: "relative" }}>
           {/* Left */}
           <div>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: `${G}18`, border: `1px solid ${G}35`, borderRadius: 20, padding: "6px 14px", marginBottom: 28 }}>
@@ -355,7 +355,7 @@ export default function LandingPage() {
               <span style={{ color: GL, fontSize: 11, fontWeight: 600, letterSpacing: "0.08em" }}>ANÁLISE GRATUITA · RESULTADO IMEDIATO</span>
             </div>
 
-            <h1 style={{ fontFamily: "Palatino Linotype, Palatino, Book Antiqua, Georgia, serif", fontSize: 52, lineHeight: 1.1, margin: "0 0 24px", fontWeight: "normal" }}>
+            <h1 className="dj-hero-h1" style={{ fontFamily: "Palatino Linotype, Palatino, Book Antiqua, Georgia, serif", fontSize: 52, lineHeight: 1.1, margin: "0 0 24px", fontWeight: "normal" }}>
               Sua dívida cresceu{" "}
               <span style={{ color: GL, position: "relative" }}>
                 além do limite
@@ -366,7 +366,7 @@ export default function LandingPage() {
               {" "}da lei?
             </h1>
 
-            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 17, lineHeight: 1.75, margin: "0 0 36px", maxWidth: 480 }}>
+            <p className="dj-hero-p" style={{ color: "rgba(255,255,255,0.55)", fontSize: 17, lineHeight: 1.75, margin: "0 0 36px", maxWidth: 480 }}>
               Bancos cobram juros que ultrapassam os limites legais.<br /><br />Nossa assistente jurídica analisa sua situação em minutos — de graça, sem compromisso.
             </p>
 
@@ -432,7 +432,7 @@ export default function LandingPage() {
               </div>
             </div>
             {/* Floating badge */}
-            <div style={{ position: "absolute", top: -16, right: -16, background: "#ef4444", color: "#fff", borderRadius: 20, padding: "6px 14px", fontSize: 11, fontWeight: 700, letterSpacing: "0.05em", boxShadow: "0 4px 16px rgba(239,68,68,0.4)", zIndex: 10 }}>
+            <div className="dj-realtime-badge" style={{ position: "absolute", top: -16, right: -16, background: "#ef4444", color: "#fff", borderRadius: 20, padding: "6px 14px", fontSize: 11, fontWeight: 700, letterSpacing: "0.05em", boxShadow: "0 4px 16px rgba(239,68,68,0.4)", zIndex: 10 }}>
               ANÁLISE EM TEMPO REAL
             </div>
           </div>
@@ -440,12 +440,12 @@ export default function LandingPage() {
       </section>
 
       {/* ── COMO FUNCIONA ── */}
-      <section style={{ padding: "80px 32px", maxWidth: 1100, margin: "0 auto" }}>
+      <section className="dj-section-pad" style={{ padding: "80px 32px", maxWidth: 1100, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 56 }}>
           <div style={{ color: GL, fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", marginBottom: 12 }}>COMO FUNCIONA</div>
           <h2 style={{ fontFamily: "Palatino Linotype, Palatino, Book Antiqua, Georgia, serif", fontSize: 36, fontWeight: "normal", margin: 0 }}>3 passos. Menos de 3 minutos.</h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }}>
+        <div className="steps-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }}>
           {[
             { num: "01", icon: "💬", titulo: "Responda às perguntas", desc: "A Juri faz perguntas simples sobre sua dívida: qual banco, qual tipo, quanto cresceu, se você está negativado." },
             { num: "02", icon: "⚖️", titulo: "Análise jurídica automática", desc: "Nosso sistema compara os dados com os limites legais de juros e encargos previstos em lei e na jurisprudência." },
@@ -462,13 +462,13 @@ export default function LandingPage() {
       </section>
 
       {/* ── DIREITOS ── */}
-      <section style={{ padding: "60px 32px", background: "rgba(255,255,255,0.02)", borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+      <section className="dj-section-pad" style={{ padding: "60px 32px", background: "rgba(255,255,255,0.02)", borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <div style={{ color: GL, fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", marginBottom: 12 }}>VOCÊ PODE TER DIREITO A</div>
             <h2 style={{ fontFamily: "Palatino Linotype, Palatino, Book Antiqua, Georgia, serif", fontSize: 34, fontWeight: "normal", margin: 0 }}>O que a lei garante ao devedor</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16 }}>
+          <div className="rights-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16 }}>
             {[
               { icon: "⚖️", titulo: "Revisão judicial dos contratos", desc: "O Código de Defesa do Consumidor e o Código Civil permitem a revisão de cláusulas abusivas em contratos bancários — resultando na redução do saldo da dívida." },
               { icon: "💰", titulo: "Restituição em dobro", desc: "Se valores foram cobrados indevidamente, o Art. 42 do Código do Consumidor garante devolução em dobro do que foi pago a mais." },
@@ -488,8 +488,8 @@ export default function LandingPage() {
       </section>
 
       {/* ── CHAT SECTION ── */}
-      <section ref={chatSectionRef} style={{ padding: "80px 32px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: 60, alignItems: "start" }}>
+      <section ref={chatSectionRef} className="dj-section-pad" style={{ padding: "80px 32px" }}>
+        <div className="chat-grid" style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: 60, alignItems: "start" }}>
           {/* Esquerda — copy */}
           <div style={{ paddingTop: 20 }}>
             <div style={{ color: GL, fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", marginBottom: 16 }}>ANÁLISE GRATUITA</div>
@@ -531,7 +531,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ padding: "60px 32px", maxWidth: 800, margin: "0 auto" }}>
+      <section className="dj-section-pad" style={{ padding: "60px 32px", maxWidth: 800, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 44 }}>
           <div style={{ color: GL, fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", marginBottom: 12 }}>DÚVIDAS FREQUENTES</div>
           <h2 style={{ fontFamily: "Palatino Linotype, Palatino, Book Antiqua, Georgia, serif", fontSize: 32, fontWeight: "normal", margin: 0 }}>Perguntas comuns</h2>
@@ -577,10 +577,19 @@ export default function LandingPage() {
         ::-webkit-scrollbar-track { background:transparent; }
         ::-webkit-scrollbar-thumb { background:rgba(201,168,76,0.25); border-radius:2px; }
         @media (max-width:768px) {
-          .hero-grid { grid-template-columns:1fr !important; }
+          .hero-grid { grid-template-columns:1fr !important; padding:60px 20px 40px !important; gap:40px !important; }
           .steps-grid { grid-template-columns:1fr !important; }
           .rights-grid { grid-template-columns:1fr !important; }
-          .chat-grid { grid-template-columns:1fr !important; }
+          .chat-grid { grid-template-columns:1fr !important; gap:32px !important; }
+          .dj-nav { padding:0 16px !important; }
+          .dj-nav-right { gap:10px !important; }
+          .dj-nav-ig-label { display:none !important; }
+          .dj-nav-cta { padding:7px 12px !important; font-size:10px !important; }
+          .dj-hero-h1 { font-size:38px !important; }
+          .dj-hero-p { font-size:15px !important; }
+          .dj-section-pad { padding:60px 20px !important; }
+          .dj-chat-container { height:480px !important; }
+          .dj-realtime-badge { right:8px !important; top:-12px !important; font-size:10px !important; padding:5px 10px !important; }
         }
       `}</style>
     </div>
