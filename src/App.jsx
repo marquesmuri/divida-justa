@@ -318,7 +318,7 @@ export default function LandingPage() {
         transition: "all 0.3s",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src={LOGO_NAV} alt="Marques & Cunha Advogados" style={{ height: 48, width: "auto", objectFit: "contain", maxWidth: 220 }} />
+          <img className="dj-nav-logo" src={LOGO_NAV} alt="Marques & Cunha Advogados" style={{ height: 48, width: "auto", objectFit: "contain", maxWidth: 220 }} />
           <span style={{ color: "rgba(255,255,255,0.2)", fontSize: 12, marginLeft: 4, fontStyle: "italic" }}>Dívida Justa</span>
         </div>
         <div className="dj-nav-right" style={{ display: "flex", alignItems: "center", gap: 20 }}>
@@ -372,7 +372,7 @@ export default function LandingPage() {
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 48 }}>
               <button onClick={scrollToChat} style={{ padding: "16px 32px", borderRadius: 10, background: `linear-gradient(135deg,${G},${GL})`, border: "none", color: "#15253f", fontWeight: 700, fontSize: 15, cursor: "pointer", letterSpacing: "0.03em", boxShadow: `0 8px 32px ${G}30` }}>
-                Descobrir agora — é grátis →
+                Descobrir agora → é grátis
               </button>
               <a href="https://instagram.com/marquesecunha.adv" target="_blank" rel="noreferrer"
                 style={{ padding: "16px 24px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.65)", fontSize: 15, cursor: "pointer", textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
@@ -443,7 +443,7 @@ export default function LandingPage() {
       <section className="dj-section-pad" style={{ padding: "80px 32px", maxWidth: 1100, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 56 }}>
           <div style={{ color: GL, fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", marginBottom: 12 }}>COMO FUNCIONA</div>
-          <h2 style={{ fontFamily: "Palatino Linotype, Palatino, Book Antiqua, Georgia, serif", fontSize: 36, fontWeight: "normal", margin: 0 }}>3 passos. Menos de 3 minutos.</h2>
+          <h2 style={{ fontFamily: "Palatino Linotype, Palatino, Book Antiqua, Georgia, serif", fontSize: 36, fontWeight: "normal", margin: 0 }}>3 passos.<br />Menos de 3 minutos.</h2>
         </div>
         <div className="steps-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }}>
           {[
@@ -510,7 +510,7 @@ export default function LandingPage() {
             </div>
             <div style={{ marginTop: 40, padding: "20px 24px", background: `${G}10`, border: `1px solid ${G}25`, borderRadius: 14 }}>
               <div style={{ color: GL, fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", marginBottom: 8 }}>ESCRITÓRIO RESPONSÁVEL</div>
-              <img src={LOGO_NAV} alt="Marques & Cunha Advogados" style={{ height: 44, width: "auto", objectFit: "contain", maxWidth: 200, marginBottom: 8, filter: "brightness(1.15)" }} />
+              <img src={LOGO_NAV} alt="Marques & Cunha Advogados" style={{ height: 36, width: "auto", objectFit: "contain", maxWidth: 160, marginBottom: 8, filter: "brightness(1.15)" }} />
               <div style={{ color: "rgba(255,255,255,0.35)", fontSize: 12 }}>Direito Bancário · Direito Digital</div>
               <a href="https://instagram.com/marquesecunha.adv" target="_blank" rel="noreferrer"
                 style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 10, color: GL, fontSize: 12, textDecoration: "none", letterSpacing: "0.03em" }}>
@@ -551,7 +551,7 @@ export default function LandingPage() {
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20 }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
-              <img src={LOGO_FOOTER} alt="Marques & Cunha Advogados" style={{ height: 60, width: "auto", objectFit: "contain", maxWidth: 280, opacity: 0.92 }} />
+              <img src={LOGO_FOOTER} alt="Marques & Cunha Advogados" style={{ height: 48, width: "auto", objectFit: "contain", maxWidth: 220, opacity: 0.92 }} />
             </div>
             <div style={{ color: "rgba(255,255,255,0.3)", fontSize: 11 }}>Uma iniciativa de Marques & Cunha Advogados</div>
           </div>
@@ -589,7 +589,11 @@ export default function LandingPage() {
           .dj-hero-p { font-size:15px !important; }
           .dj-section-pad { padding:60px 20px !important; }
           .dj-chat-container { height:480px !important; }
+          .dj-nav-logo { height:48px !important; max-width:220px !important; }
           .dj-realtime-badge { right:8px !important; top:-12px !important; font-size:10px !important; padding:5px 10px !important; }
+        }
+        @media (max-width:480px) {
+          .dj-nav-logo { height:34px !important; max-width:160px !important; }
         }
       `}</style>
     </div>
